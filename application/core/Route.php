@@ -8,6 +8,9 @@ class Route
     public static $requestmethod;
     public static $config;
 
+    public static $home;
+    public static $error;
+
     public function __construct()
     {
         self::$url = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), array('')));
@@ -19,6 +22,7 @@ class Route
     public static function init()
     {
         self::$config = require_once __DIR__ . './../config/routes.php';
+        
     }
 
     public static function get($name, $file, $ext = 'php')
@@ -27,16 +31,20 @@ class Route
         {
             $link = array_values(array_diff(explode('/', $name), array('')));
 
-            echo "<pre>";
-            print_r(self::$url);
-            echo "</pre>";
-            if ($link === self::$url)
+            if (self::$url)
             {
-                self::view($file, $ext);
+                if ($link[0] === self::$url[0])
+                {
+                    self::view($file, $ext);
+                }
+                else
+                {
+                    self::view(self::$error, $ext);
+                }
             }
             else
             {
-                self::view('404', $ext);
+                self::view(self::$home, $ext);
             }
         }
     }
@@ -45,5 +53,15 @@ class Route
     {
         $fileToLoad = dirname(__DIR__) . '/views/' . $path . '.' . $ext;
         require_once($fileToLoad);
+    }
+
+    
+    public static function home($path, $ext = 'php')
+    {
+        self::$home = $path;
+    }
+    public static function error($path, $ext = 'php')
+    {
+        self::$error = $path;
     }
 }

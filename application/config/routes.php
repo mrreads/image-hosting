@@ -2,6 +2,7 @@
 
 use Application\Core\Route;
 
-Route::get('/', 'home');
+Route::home('home');
+Route::error('404');
+
 Route::get('gallery', 'gallery');
-Route::get('404', '404');
