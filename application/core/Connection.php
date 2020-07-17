@@ -4,7 +4,7 @@ namespace Application\Core;
 
 class Connection
 {
-    private $dbh;
+    private static $dbh;
     public static $connected;
 
     public function __construct()
@@ -12,7 +12,7 @@ class Connection
         (self::$connected == false) ? $this->connect() : null;
     }
 
-    public function connect()
+    public static function connect()
     {
         $config = require_once __DIR__ . '/../config/database.php';
         $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['host'];
@@ -22,18 +22,19 @@ class Connection
         ];
         try
         {
-            $this->dbh = new \PDO($dsn, $config['user'], $config['password'], $options);
+            self::$dbh = new \PDO($dsn, $config['user'], $config['password'], $options);
             self::$connected = true;
         }
         catch (\PDOException $e)
         {
             exit($e->getMessage());
         }
+
     }
 
     public function query()
     {
-        return self::$connected;
+
     }
 
 }

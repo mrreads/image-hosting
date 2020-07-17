@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$db = new \Application\Core\Connection;
+\Application\Core\Connection::connect();
 
-echo $db->query();
+new \Application\Core\Route;
+
