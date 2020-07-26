@@ -5,14 +5,23 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title> imgHOST - хостинг изображений </title>
+    <link rel="stylesheet" href="/application/views/resources/css/general.css">
 </head>
 <body>
-    <h1> Домашняя страница </h1>
+    
+    <?include(__DIR__ . './includes/header.php')?>
 
-    <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php">
-        <input  name="upload[]"  type="file" multiple required>
-        <input type="submit" value="загрузить">
-    </form>
+
+    <!-- <div class="container">
+        <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php">
+            <input  name="upload[]"  type="file" multiple required>
+            <input type="submit" value="загрузить">
+        </form>
+    </div> -->
+
+
+    <?include(__DIR__ . './includes/footer.php')?>
+
 </body>
 </html>

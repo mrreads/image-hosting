@@ -1,0 +1,57 @@
+@import "./header.css";
+@import "./footer.css";
+
+
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web&family=Russo+One&display=swap");
+
+*, *::after, *::before
+{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html
+{
+	height: 100%;
+}
+
+body
+{
+	font-family: "Istok Web", sans-serif;
+
+/* font-family: 'Russo One', sans-serif; */
+
+	display: flex;
+	flex-flow: column nowrap;
+
+	min-width: 320px;
+	min-height: 100%;
+
+	color: #FFFFFF;
+	background-color: #2E3035;
+}
+
+a
+{
+	display: inline-block;
+
+	text-decoration: none;
+}
+
+.container
+{
+	flex-grow: 1;
+
+	max-width: 1440px;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0 50px;
+}
+
+img
+{
+	display: inline-block;
+
+	object-fit: contain;
+}
