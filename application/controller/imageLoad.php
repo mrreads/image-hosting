@@ -4,8 +4,7 @@ require_once __DIR__ . './../../vendor/autoload.php';
 
 \Application\Core\Connection::connect();
 
-$images = \Application\Core\File::returnOnlyImages(\Application\Core\File::getFiles());
+$allFiles = \Application\Core\File::getFiles();
+$imagesFiles = \Application\Core\File::returnOnlyImages($allFiles);
 
-echo "<pre>";
-print_r($images);
-echo "</pre>";
+\Application\Core\File::uploadFileToServer($imagesFiles);

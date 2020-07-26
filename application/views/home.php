@@ -11,7 +11,7 @@
     <h1> Домашняя страница </h1>
 
     <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php">
-        <input  name="upload[]"  type="file" multiple>
+        <input  name="upload[]"  type="file" multiple required>
         <input type="submit" value="загрузить">
     </form>
 </body>

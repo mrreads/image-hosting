@@ -4,7 +4,7 @@ namespace Application\Core;
 
 class Connection
 {
-    private static $dbh;
+    public static $dbh;
     public static $connected;
 
     public function __construct()
@@ -32,9 +32,22 @@ class Connection
 
     }
 
-    public function query()
+    public static function queryExecute($query)
     {
-
+        self::$dbh->prepare("$query")->execute();
     }
 
+    public static function writeImagePath($path)
+    {
+        $path = self::$dbh->quote($path);
+        $query = "INSERT INTO `images` (`id_image`, `image_path`) VALUES (NULL, '$path');";
+        try
+        {
+            self::$dbh->prepare($query)->execute();
+        }
+        catch (\PDOException $e)
+        {
+            exit($e->getMessage());
+        }
+    }
 }

@@ -8,6 +8,11 @@ class File
     {
     }
 
+    public static function getFiles()
+    {
+        return $_FILES['upload'];
+    }
+
     public static function returnOnlyImages($filesArray)
     {
         $arrayWithImages = [];
@@ -36,8 +41,23 @@ class File
         return $arrayWithImages;
     }
 
-    public static function getFiles()
+    public static function uploadFileToServer($imagesArray)
     {
-        return $_FILES['upload'];
+        $filesCount = count($imagesArray['name']);
+        $currentFile = 0;
+
+        while ($currentFile != $filesCount)
+        {
+            $extension = end(explode('.', $imagesArray['name'][$currentFile]));
+            $pathToWrite = dirname(dirname(__DIR__)) . '/uploads/';
+            $fileName = md5(microtime() . rand(0, 1000)).'.'.$extension;
+            $finalPath = $pathToWrite.$fileName;
+            $finalPath = str_replace('\\', '/', $finalPath);
+
+            move_uploaded_file($imagesArray['tmp_name'][$currentFile], $pathToWrite. $fileName);
+            Connection::queryExecute("INSERT INTO `images` (`id_image`, `image_path`) VALUES (NULL, '$finalPath');");
+
+            $currentFile++;
+        }
     }
 }
