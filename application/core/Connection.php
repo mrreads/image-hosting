@@ -32,6 +32,22 @@ class Connection
 
     }
 
+    public static function query($query)
+    {
+        $sth = self::$dbh->prepare($query);
+        $sth->execute();
+        $result = $sth->fetch(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public static function queryAll($query)
+    {
+        $sth = self::$dbh->prepare($query);
+        $sth->execute();
+        $result = $sth->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public static function queryExecute($query)
     {
         self::$dbh->prepare("$query")->execute();
