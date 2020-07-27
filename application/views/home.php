@@ -12,13 +12,14 @@
     
     <?include(__DIR__ . './includes/header.php')?>
 
+    <?include(__DIR__ . './includes/gallery.php')?>
 
-    <!-- <div class="container">
+    <div class="container">
         <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php">
             <input  name="upload[]"  type="file" multiple required>
             <input type="submit" value="загрузить">
         </form>
-    </div> -->
+    </div>
 
 
     <?include(__DIR__ . './includes/footer.php')?>
