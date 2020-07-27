@@ -50,12 +50,17 @@ class File
         {
             $extension = end(explode('.', $imagesArray['name'][$currentFile]));
             $pathToWrite = dirname(dirname(__DIR__)) . '/uploads/';
-            $fileName = md5(microtime() . rand(0, 1000)).'.'.$extension;
+            $fileGenerate = mb_strcut(md5(microtime() . rand(0, 1000)), 0, 6);
+            $fileName = $fileGenerate.'.'.$extension;
+            while (Connection::query("SELECT * FROM `images` WHERE images.image_path like '$fileGenerate%';"))
+            {
+                $fileGenerate = mb_strcut(md5(microtime() . rand(0, 1000)), 0, 6);
+            }
             $finalPath = $pathToWrite.$fileName;
             $finalPath = str_replace('\\', '/', $finalPath);
 
             move_uploaded_file($imagesArray['tmp_name'][$currentFile], $pathToWrite. $fileName);
-            Connection::queryExecute("INSERT INTO `images` (`id_image`, `image_path`) VALUES (NULL, '$finalPath');");
+            Connection::queryExecute("INSERT INTO `images` (`id_image`, `image_path`) VALUES (NULL, '$fileName');");
 
             $currentFile++;
         }
