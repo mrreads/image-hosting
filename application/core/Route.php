@@ -33,7 +33,7 @@ class Route
 
             if (self::$url)
             {
-                if ($link[0] === self::$url[0])
+                if ($link[0] == self::$url[0])
                 {
                     self::view($file, $ext);
                 }

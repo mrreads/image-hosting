@@ -1,6 +1,6 @@
 <header class="header">
     <div class="container">
-        <h1 class="header__heading"> imgHOST </h1>
+        <h1 class="header__heading"> <a href="./"> imgHOST </a> </h1>
 
         <!-- <div class="header__search">
             <input type="text" name="search" placeholder="Начните писать, чтобы начать поиск изображения..." class="search__input">

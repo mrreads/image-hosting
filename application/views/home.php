@@ -12,15 +12,18 @@
     
     <?include(__DIR__ . './includes/header.php')?>
 
+    <div class="container" style="display: flex; align-items: center">
+        <h1 style="text-align: center; font-size: 48px;"> Главная страница </h1>
+    </div>
+
     <?include(__DIR__ . './includes/gallery.php')?>
 
-    <div class="container">
+    <!-- <div class="container">
         <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php">
             <input  name="upload[]"  type="file" multiple required>
             <input type="submit" value="загрузить">
         </form>
-    </div>
-
+    </div> -->
 
     <?include(__DIR__ . './includes/footer.php')?>
 
