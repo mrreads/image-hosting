@@ -64,4 +64,9 @@ class Route
     {
         self::$error = $path;
     }
+
+    public static function getURL()
+    {
+        return self::$url;
+    }
 }
