@@ -1,9 +1,11 @@
-<div class="gallery">
+<div class="gallery image">
     <div class="container">
         <?php
         require_once __DIR__ . './../../../vendor/autoload.php';
         use \Application\Core\Connection;
-        $images = Connection::queryAll("SELECT * from `images`");
+        use Application\Core\Route;
+
+        $images = Connection::queryAll("SELECT * from `images` WHERE images.image_path LIKE '". Route::getURL() ."%';");
 
         foreach($images as $image): ?>
         

@@ -58,3 +58,18 @@ img
 
 	object-fit: contain;
 }
+
+.container .title
+{
+	margin-top: 50px;
+	text-align: center;
+	font-size: 58px;
+}
+
+@media screen and (max-width: 600px)
+{
+	.container .title
+	{
+		font-size: 12vw;
+	}
+}

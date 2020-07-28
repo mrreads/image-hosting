@@ -12,6 +12,10 @@
     
     <?include(__DIR__ . './includes/header.php')?>
 
+    <div class="container" style="flex-grow: 0">
+        <h1 class="title"> Конкретное изображение </h1>
+    </div>
+
     <?include(__DIR__ . './includes/image.php')?>
 
     <?include(__DIR__ . './includes/footer.php')?>

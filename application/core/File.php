@@ -65,4 +65,9 @@ class File
             $currentFile++;
         }
     }
+
+    public static function imageExist($imageName)
+    {
+        return (Connection::query("SELECT * from `images` WHERE images.image_path LIKE '$imageName%';")) ? true : false;
+    }
 }

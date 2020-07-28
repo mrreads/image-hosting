@@ -12,8 +12,8 @@
 
     <?include(__DIR__ . './includes/header.php')?>
 
-    <div class="container" style="display: flex; align-items: center">
-        <h1 style="text-align: center; font-size: 48px;"> Страница галереи </h1>
+    <div class="container" style="flex-grow: 0">
+        <h1 class="title"> Галерея </h1>
     </div>
 
     <?include(__DIR__ . './includes/footer.php')?>

@@ -39,7 +39,7 @@ class Route
                 }
                 else
                 {
-                    self::view(self::$error, $ext);
+                    //self::view(self::$error, $ext);
                 }
             }
             else
@@ -67,6 +67,6 @@ class Route
 
     public static function getURL()
     {
-        return self::$url;
+        return self::$url[0];
     }
 }
