@@ -59,9 +59,10 @@ class File
             $finalPath = $pathToWrite.$fileName;
             $finalPath = str_replace('\\', '/', $finalPath);
 
-            move_uploaded_file($imagesArray['tmp_name'][$currentFile], $pathToWrite. $fileName);
-            Connection::queryExecute("INSERT INTO `images` (`id_image`, `image_path`) VALUES (NULL, '$fileName');");
+            //move_uploaded_file($imagesArray['tmp_name'][$currentFile], $pathToWrite. $fileName);
+            //Connection::queryExecute("INSERT INTO `images` (`id_image`, `image_path`) VALUES (NULL, '$fileName');");
 
+            echo $fileName;
             $currentFile++;
         }
     }

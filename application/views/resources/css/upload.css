@@ -1,40 +1,37 @@
 .upload
 {
 	display: flex;
-	flex-flow: column nowrap;
-
-	box-shadow: 1px 1px 6px 0 rgba(0,0,0,0.4);
-}
-
-.upload__droparea
-{
-	display: flex;
 	align-items: center;
+	flex-flow: row wrap;
 	justify-content: center;
 
-	min-height: 300px;
+	width: 100%;
+	min-height: 200px;
+	padding: 55px;
 
-	background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-
-	background-blend-mode: multiply,multiply;
+	border: 2px white dashed;
+	background-color: transparent;
 }
 
-.upload__droparea p
+.upload__button
 {
-	font-family: "Russo One", sans-serif;
-	font-size: 26px;
+	font-size: 16px;
+	font-weight: bold;
 
-	width: 500px;
-	padding: 15px 30px;
+	margin-top: 25px;
+	padding: 15px 25px;
 
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
 	text-align: center;
+
+	color: #FFFFFF;
+	border: 0;
+	background-color: #1BB76E;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.upload__form
+.upload__button:hover
 {
-    min-height: 150px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
