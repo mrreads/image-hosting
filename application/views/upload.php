@@ -15,13 +15,16 @@
     
     <?include(__DIR__ . './includes/header.php')?>
 
-    <div class="container" style="display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;">
+    <div class="container containerUpload">
+        
         <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php" class="dropzone upload" id="upload">
+            <div class="uploaded"> <p> Успешно загруженно! </p> </div>
+            
             <div class="fallback">
                 <input  name="upload[]"  type="file" multiple>
             </div>
         </form>
-        <input type="submit" class="upload__button" value="Загрузить изображения" form="upload" >
+        <input type="submit" class="upload__button disabled" value="Загрузить изображения" form="upload" >
     </div>
     
     <?include(__DIR__ . './includes/footer.php')?>

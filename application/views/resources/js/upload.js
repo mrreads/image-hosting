@@ -1,6 +1,20 @@
 let uploadForm = new FormData(document.querySelector("#upload"));
+let uploadButton = document.querySelector('.upload__button');
 let addedFile = 0;
 let sucessFile = 0;
+
+function checkButton()
+{
+    
+    if (sucessFile === addedFile)
+    {
+        uploadButton.classList.remove('disabled');
+    }
+    else
+    {
+        uploadButton.classList.add('disabled');
+    }
+}
 
 Dropzone.options.upload = {
     url: document.querySelector('#upload').action, 
@@ -27,39 +41,39 @@ Dropzone.options.upload = {
             e.preventDefault();
             e.stopPropagation();
 
-            fetch('/application/controller/imageLoad.php', 
+            if (!uploadButton.classList.contains('disabled'))
             {
-                //headers: { 'Content-Type': 'multipart/form-data' },
-                method: 'POST',
-                body: uploadForm
-            })
-            .then((result) =>
-            {
-                result.json().then(result => 
+                fetch('/application/controller/imageLoad.php', 
                 {
-                    if (result === 'sucess')
+                    //headers: { 'Content-Type': 'multipart/form-data' },
+                    method: 'POST',
+                    body: uploadForm
+                })
+                .then((result) =>
+                {
+                    result.json().then(result => 
                     {
-                        
-                    }
+                        if (result === 'sucess')
+                        {
+                            uploadButton.classList.add('disabled');
+                            document.querySelector('.uploaded').style.display = 'block';
+                        }
+                    });
                 });
-            });
-
+            }
         });
 
         this.on("addedfile", function(file) 
         { 
             addedFile++;
-            uploadForm.append("upload[]", file);          
+            uploadForm.append("upload[]", file);
+            checkButton(); 
         });
 
         this.on("success", function(file) 
         {
             sucessFile++;
-
-            if (sucessFile === addedFile)
-            {
-                
-            }
+            checkButton()
         });
 
     }

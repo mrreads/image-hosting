@@ -1,5 +1,15 @@
+.containerUpload
+{
+	display: flex;
+	align-items: center;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+
 .upload
 {
+	position: relative;
+
 	display: flex;
 	align-items: center;
 	flex-flow: row wrap;
@@ -11,6 +21,32 @@
 
 	border: 2px white dashed;
 	background-color: transparent;
+}
+
+.uploaded
+{
+	position: absolute;
+	z-index: 999;
+	top: 0;
+	left: 0;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0,0,0, 08);
+}
+
+.uploaded > p
+{
+	font-size: 32px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 100%;
 }
 
 .upload__button
@@ -31,7 +67,13 @@
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.upload__button:hover
+.upload__button.disabled
+{
+	cursor: default;
+	opacity: 0.5;
+}
+
+.upload__button:not(.disabled):hover
 {
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
