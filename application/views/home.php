@@ -11,7 +11,7 @@
 <body>
     
     <?include(__DIR__ . './includes/header.php')?>
-
+    
     <div class="container" style="flex-grow: 0">
         <h1 class="title"> Главная страница </h1>
     </div>

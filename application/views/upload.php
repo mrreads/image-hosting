@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="/application/views/resources/lib/dropzone.min.css">
     <script src="/application/views/resources/lib/dropzone.min.js" defer></script>
     <link rel="stylesheet" href="/application/views/resources/css/general.css">
+    <script src="/application/views/resources/js/upload.js" defer></script>
 </head>
 <body>
     
     <?include(__DIR__ . './includes/header.php')?>
 
     <div class="container" style="display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;">
-        <form action="/application/controller/imageLoad.php" class="dropzone upload" id="upload">
+        <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php" class="dropzone upload" id="upload">
             <div class="fallback">
-                <input name="file" type="file" multiple require />
+                <input  name="upload[]"  type="file" multiple>
             </div>
         </form>
         <input type="submit" class="upload__button" value="Загрузить изображения" form="upload" >
