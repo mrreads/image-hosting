@@ -18,13 +18,6 @@
 
     <?include(__DIR__ . './includes/gallery.php')?>
 
-    <!-- <div class="container">
-        <form enctype="multipart/form-data" method="POST" action="/application/controller/imageLoad.php">
-            <input  name="upload[]"  type="file" multiple required>
-            <input type="submit" value="загрузить">
-        </form>
-    </div> -->
-
     <?include(__DIR__ . './includes/footer.php')?>
 
 </body>

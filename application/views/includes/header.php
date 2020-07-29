@@ -7,6 +7,6 @@
             <a href="#" class="search__button"> </a>
         </div> -->
         
-        <a href="#" class="header__loading"> Загрузить изображение </a>
+        <a href="/upload" class="header__loading"> Загрузить изображение </a>
     </div>
 </header>

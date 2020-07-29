@@ -10,3 +10,4 @@ Route::error('404');
 
 Route::get('gallery', 'gallery');
 
+Route::get('upload', 'upload');
