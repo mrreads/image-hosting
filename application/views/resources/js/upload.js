@@ -32,6 +32,8 @@ Dropzone.options.upload = {
     dictFileTooBig: "Файл слишком большой: ({{filesize}}MiB). <br> Максимальный размер файла: {{maxFilesize}}MiB.",
     dictInvalidFileType: "Неподерживаемый формат файла.",
     dictResponseError: "Сервер ответил: {{statusCode}}.",
+    dictRemoveFile: "Удалить файл",
+    dictCancelUpload: "Остановить",
 
     init: function ()
     {
