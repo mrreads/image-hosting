@@ -17,6 +17,7 @@ function checkButton()
 }
 
 Dropzone.options.upload = {
+    addRemoveLinks: true,
     url: document.querySelector('#upload').action, 
     autoDiscover: true,
     autoProcessQueue: true,
@@ -25,8 +26,7 @@ Dropzone.options.upload = {
     maxFiles: 20,
     acceptedFiles: "image/*",
     paramName: 'upload[]',
-    clickable: true,
-
+    
     dictDefaultMessage: "Перетащите изображения для загрузки.",
     dictFallbackMessage: "Ваш браузер не поддерживает данный тип загрузки изображений.",
     dictFileTooBig: "Файл слишком большой: ({{filesize}}MiB). <br> Максимальный размер файла: {{maxFilesize}}MiB.",
@@ -73,8 +73,16 @@ Dropzone.options.upload = {
         this.on("success", function(file) 
         {
             sucessFile++;
-            checkButton()
+            checkButton();
         });
 
+        this.on("removedfile", function(file) 
+        {
+            addedFile--;
+
+            if (file.status == 'success')
+                sucessFile--;
+
+        });
     }
 };
