@@ -9,10 +9,11 @@
 
         foreach($images as $image): ?>
         
-        <a href="<?=$extension = explode('.', $image['image_path'])[0]?>">
-            <img src="/uploads/<?=$image['image_path']?>">
-        </a>
+            <img src="/uploads/<?=$image['image_path']?>">    
             
         <?php endforeach; ?>
+
+        <a class="original" href="/uploads/<?=$image['image_path']?>"> Открыть оригинал </a>
+    
     </div>
 </div>
